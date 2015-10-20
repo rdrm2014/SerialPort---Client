@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<script src="socket.io.js"></script>
+</head>
+<body>
+<!--<script src="../node_modules/socket.io-client/test.js"></script>-->
+<script>
+    //var socket = io();
+    var socket = io('http://127.0.0.1:8080');
+    //var socket = io('http://127.0.0.1:8080');
+    //var socket = io.connect('http://127.0.0.1:8080', {reconnect: true});
+
+    socket.on('connect', function () {
+        socket.emit('join', {username: "Consummer2", room: "MAC_1_1"});
+    });
+
+    socket.on('update', function (dataSocket) {
+        console.log(dataSocket);
+    });
+</script>
+</body>
+</html>
